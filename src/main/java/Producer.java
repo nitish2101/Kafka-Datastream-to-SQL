@@ -3,6 +3,7 @@ import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.serialization.StringSerializer;
 
 import java.util.Properties;
+import java.util.Scanner;
 
 public class Producer {
 
@@ -16,9 +17,12 @@ public class Producer {
         properties.setProperty("value.serializer", StringSerializer.class.getName());
         KafkaProducer<String,String> producer = new KafkaProducer<>(properties);
 
+        Scanner sc = new Scanner(System.in);
+
         for(int i=0;i<10;i++){
+            String str = sc.nextLine();
             ProducerRecord<String,String> producerRecord =
-                    new ProducerRecord<>(topic,"Hello "+i);
+                    new ProducerRecord<>(topic,str);
             try{
                 producer.send(producerRecord);
             }catch(Exception e){

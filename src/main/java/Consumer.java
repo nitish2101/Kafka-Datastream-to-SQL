@@ -26,11 +26,6 @@ public class Consumer {
         KafkaConsumer<String,String> consumer = new KafkaConsumer<>(properties);
         consumer.subscribe(Arrays.asList("demo_topic"));
 
-//        String connectionString = "mongodb+srv://admin:admin@kafka.csgxixi.mongodb.net/?retryWrites=true&w=majority";
-//        MongoClient mongoClient = MongoClients.create(connectionString);
-//        MongoDatabase database = mongoClient.getDatabase("kafka");
-//        MongoCollection<Document> collection = database.getCollection("collection");
-
         String jdbcUrl = "jdbc:postgresql://localhost:5432/kafka-demo";
         String dbUser = "nitish.vashisht";
         String dbPassword = "nitish@21";
