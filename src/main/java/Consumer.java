@@ -47,7 +47,7 @@ public class Consumer {
                         preparedStatement.executeUpdate();
                         System.out.println("Received and stored message: " + record.value());
                     } catch (SQLException e) {
-                        e.printStackTrace();
+                        System.out.println("SQL Error: "+e);
                     }
                 }
             }
