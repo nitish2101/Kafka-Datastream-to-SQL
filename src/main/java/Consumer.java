@@ -11,6 +11,8 @@ import java.time.Duration;
 import java.util.Arrays;
 import java.util.Properties;
 
+//this is consumer class
+
 public class Consumer {
     static String topic = "demo_java";
 
@@ -20,7 +22,7 @@ public class Consumer {
         properties.setProperty("bootstrap.servers","127.0.0.1:9092");
         properties.setProperty("key.deserializer", StringDeserializer.class.getName());
         properties.setProperty("value.deserializer", StringDeserializer.class.getName());
-        properties.setProperty("group.id","first-group");
+        properties.setProperty("group.id","group-1");
 
 
         KafkaConsumer<String,String> consumer = new KafkaConsumer<>(properties);
