@@ -28,10 +28,6 @@ public class Consumer {
         KafkaConsumer<String,String> consumer = new KafkaConsumer<>(properties);
         consumer.subscribe(Arrays.asList("demo_topic"));
 
-        String jdbcUrl = "jdbc:postgresql://localhost:5432/kafka-demo";
-        String dbUser = "nitish.vashisht";
-        String dbPassword = "nitish@21";
-
         try (Connection connection = DriverManager.getConnection(jdbcUrl, dbUser, dbPassword)) {
             while (true) {
                 ConsumerRecords<String, String> records = consumer.poll(Duration.ofMillis(100));
