@@ -10,7 +10,7 @@ public class Producer {
     public static void main(String[] args) {
 
 
-        String topic = "demo_topic";
+        String topic = "demo_topics";
         Properties properties = new Properties();
         properties.setProperty("bootstrap.servers","127.0.0.1:9092");
         properties.setProperty("key.serializer", StringSerializer.class.getName());
@@ -20,9 +20,8 @@ public class Producer {
         Scanner sc = new Scanner(System.in);
 
         for(int i=0;i<10;i++){
-            String str = sc.nextLine();
             ProducerRecord<String,String> producerRecord =
-                    new ProducerRecord<>(topic,str);
+                    new ProducerRecord<>(topic,i);
             try{
                 producer.send(producerRecord);
             }catch(Exception e){
